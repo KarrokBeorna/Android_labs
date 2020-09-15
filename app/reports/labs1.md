@@ -6,9 +6,7 @@
 
 ## Вариант 10
 
-![](https://github.com/KarrokBeorna/Android_labs/blob/master/app/Pictures/labs1/var10_10.png)
-
-![](https://github.com/KarrokBeorna/Android_labs/blob/master/app/Pictures/labs1/var10_19.png)
+![](https://github.com/KarrokBeorna/Android_labs/blob/master/app/Pictures/labs1/var10_10.png) ![](https://github.com/KarrokBeorna/Android_labs/blob/master/app/Pictures/labs1/var10_19.png)
 
 ## Задача 1 - LinearLayout
 
