@@ -232,81 +232,81 @@ __Листинг 2.2__
 ## Задача 3 - Best-matching resource
 
 __Конфигурация устройства:__
-    LOCALE_LANG: en
-    LOCALE_REGION: rFR
-    SCREEN_SIZE: xlarge
-    SCREEN_ASPECT: notlong
-    ROUND_SCREEN: round
-    ORIENTATION: land
-    UI_MODE: watch
-    NIGHT_MODE: notnight
-    PIXEL_DENSITY: mdpi
-    TOUCH: notouch
-    PRIMARY_INPUT: nokeys
-    NAV_KEYS: nonav
-    PLATFORM_VER: v26
+- LOCALE_LANG: en
+- LOCALE_REGION: rFR
+- SCREEN_SIZE: xlarge
+- SCREEN_ASPECT: notlong
+- ROUND_SCREEN: round
+- ORIENTATION: land
+- UI_MODE: watch
+- NIGHT_MODE: notnight
+- PIXEL_DENSITY: mdpi
+- TOUCH: notouch
+- PRIMARY_INPUT: nokeys
+- NAV_KEYS: nonav
+- PLATFORM_VER: v26
 
 __Конфигурация ресурсов:__
-    (default)
-    long-round-port
-    rFR-notlong-round-notnight-nodpi-v25
-    notlong-land-xxxhdpi
-    long-ldpi-finger
-    fr-notlong-port-qwerty-v25
-    long-port
-    round-desk-xxhdpi-v26
-    rFR-notlong-nokeys-v27
-    large-port-vrheadset-12key
-    fr-rUS-watch-finger
+- (default)
+- long-round-port
+- rFR-notlong-round-notnight-nodpi-v25
+- notlong-land-xxxhdpi
+- long-ldpi-finger
+- fr-notlong-port-qwerty-v25
+- long-port
+- round-desk-xxhdpi-v26
+- rFR-notlong-nokeys-v27
+- large-port-vrheadset-12key
+- fr-rUS-watch-finger
 
-- Убираем 2 строки с языками fr
+Убираем 2 строки с языками fr
 
-    (default)
-    long-round-port
-    rFR-notlong-round-notnight-nodpi-v25
-    notlong-land-xxxhdpi
-    long-ldpi-finger
-    __~~fr-notlong-port-qwerty-v25~~__
-    long-port
-    round-desk-xxhdpi-v26
-    rFR-notlong-nokeys-v27
-    large-port-vrheadset-12key
-    __~~fr-rUS-watch-finger~~__
+- (default)
+- long-round-port
+- rFR-notlong-round-notnight-nodpi-v25
+- notlong-land-xxxhdpi
+- long-ldpi-finger
+- __~~fr-notlong-port-qwerty-v25~~__
+- long-port
+- round-desk-xxhdpi-v26
+- rFR-notlong-nokeys-v27
+- large-port-vrheadset-12key
+- __~~fr-rUS-watch-finger~~__
 
-- Убираем 2 строки с регионами rFR, так как нельзя писать только регион
+Убираем 2 строки с регионами rFR, так как нельзя писать только регион
 
-    (default)
-    long-round-port
-    __~~rFR-notlong-round-notnight-nodpi-v25~~__
-    notlong-land-xxxhdpi
-    long-ldpi-finger
-    long-port
-    round-desk-xxhdpi-v26
-    __~~rFR-notlong-nokeys-v27~~__
-    large-port-vrheadset-12key
+- (default)
+- long-round-port
+- __~~rFR-notlong-round-notnight-nodpi-v25~~__
+- notlong-land-xxxhdpi
+- long-ldpi-finger
+- long-port
+- round-desk-xxhdpi-v26
+- __~~rFR-notlong-nokeys-v27~~__
+- large-port-vrheadset-12key
 
-- Смотрим на размер экрана и убираем лишнюю строку
+Смотрим на размер экрана и убираем лишнюю строку
 
-    (default)
-    long-round-port
-    notlong-land-xxxhdpi
-    long-ldpi-finger
-    long-port
-    round-desk-xxhdpi-v26
-    __~~large-port-vrheadset-12key~~__
+- (default)
+- long-round-port
+- notlong-land-xxxhdpi
+- long-ldpi-finger
+- long-port
+- round-desk-xxhdpi-v26
+- __~~large-port-vrheadset-12key~~__
 
-- Смотрим на формат экрана
+Смотрим на формат экрана
 
-    (default)
-    __~~long-round-port~~__
-    __~~notlong-land-xxxhdpi~~__
-    __~~long-ldpi-finger~~__
-    __~~long-port~~__
-    round-desk-xxhdpi-v26
+- (default)
+- __~~long-round-port~~__
+- __~~notlong-land-xxxhdpi~~__
+- __~~long-ldpi-finger~~__
+- __~~long-port~~__
+- round-desk-xxhdpi-v26
 
-- Мы нашли __notlong__, но плотность пикселей не xxxhdpi, поэтому убрали и его
+Мы нашли __notlong__, но плотность пикселей не xxxhdpi, поэтому убрали и его
 
-- Осталось 2 варианта, и вариант с round тоже не подходит, поэтому оставляем __default__.
+Осталось 2 варианта, и вариант с round тоже не подходит, поэтому оставляем __default__.
 
 ## Задача 4 - Сохранение состояние Activity
 
