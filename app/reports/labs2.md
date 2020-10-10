@@ -26,7 +26,7 @@ __Листинг 1.1__
     import android.util.Log
     import kotlinx.android.synthetic.main.continuewatch.*
 
-    val SECONDS_EL = "seconds_el"
+    const val SECONDS_EL = "seconds_el"
 
     class Continuewatch : AppCompatActivity() {
         var secondsElapsed: Int = 0
@@ -45,8 +45,14 @@ __Листинг 1.1__
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            setContentView(R.layout.continuewatch)
-            backgroundThread.start()
+            if (savedInstanceState != null) {
+                secondsElapsed = savedInstanceState.getInt(SECONDS_EL)
+                setContentView(R.layout.continuewatch)
+                backgroundThread.start()
+            } else {
+                setContentView(R.layout.continuewatch)
+                backgroundThread.start()
+            }
             Log.d("MyLifecycle", "onCreate")
         }
 
@@ -87,12 +93,13 @@ __Листинг 1.1__
             super.onSaveInstanceState(outState)
             Log.d("MyLifecycle", "onSaveInstanceState")
         }
-
+        /**
         override fun onRestoreInstanceState(savedInstanceState: Bundle) {
             secondsElapsed = savedInstanceState.getInt(SECONDS_EL)
             super.onRestoreInstanceState(savedInstanceState)
             Log.d("MyLifecycle", "onRestoreInstanceState")
-        }
+        }*/
+
     }
 
 __Листинг 1.2__
@@ -145,9 +152,11 @@ __Листинг 1.3__
 
 Продемонстрируйте работу альтернативного ресурса - __touchscreen type__.
 
-2 вида: finger - сенсорный и notouch - не сенсорный ;)
+3 вида: finger - сенсорный, notouch - не сенсорный и stylus - для стилуса.
 
-Я использовал xml-файл с прошлой лабораторной и просто приписал кнопке действие по сокрытию картинки. Демонстрацию провел на устройстве.
+Я использовал xml-файл с первого урока и добавил в res новую папку с необходимым альтернативным ресурсом.
+Функционал проверил на примере использования данного кода на телефоне и телевизоре.
+На телефоне мы видели touchscreen_app, на телевизоре - android_labs - наш простой текст.
 
 __Листинг 2.1__
 
@@ -176,7 +185,7 @@ __Листинг 2.1__
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Button"
+            android:text="@string/app_name"
             android:onClick="invis"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/imageView7"/>
@@ -232,89 +241,90 @@ __Листинг 2.2__
 ## Задача 3 - Best-matching resource
 
 __Конфигурация устройства:__
-- LOCALE_LANG: en
-- LOCALE_REGION: rFR
-- SCREEN_SIZE: xlarge
-- SCREEN_ASPECT: notlong
-- ROUND_SCREEN: round
-- ORIENTATION: land
-- UI_MODE: watch
-- NIGHT_MODE: notnight
-- PIXEL_DENSITY: mdpi
-- TOUCH: notouch
-- PRIMARY_INPUT: nokeys
-- NAV_KEYS: nonav
-- PLATFORM_VER: v26
+LOCALE_LANG: en
+LOCALE_REGION: rFR
+SCREEN_SIZE: xlarge
+SCREEN_ASPECT: notlong
+ROUND_SCREEN: round
+ORIENTATION: land
+UI_MODE: watch
+NIGHT_MODE: notnight
+PIXEL_DENSITY: mdpi
+TOUCH: notouch
+PRIMARY_INPUT: nokeys
+NAV_KEYS: nonav
+PLATFORM_VER: v26
 
 __Конфигурация ресурсов:__
-- (default)
-- long-round-port
-- rFR-notlong-round-notnight-nodpi-v25
-- notlong-land-xxxhdpi
-- long-ldpi-finger
-- fr-notlong-port-qwerty-v25
-- long-port
-- round-desk-xxhdpi-v26
-- rFR-notlong-nokeys-v27
-- large-port-vrheadset-12key
-- fr-rUS-watch-finger
+(default)
+long-round-port
+rFR-notlong-round-notnight-nodpi-v25
+notlong-land-xxxhdpi
+long-ldpi-finger
+fr-notlong-port-qwerty-v25
+long-port
+round-desk-xxhdpi-v26
+rFR-notlong-nokeys-v27
+large-port-vrheadset-12key
+fr-rUS-watch-finger
 
-Убираем 2 строки с языками fr
+- Убираем 2 строки с языками fr
 
-- (default)
-- long-round-port
-- rFR-notlong-round-notnight-nodpi-v25
-- notlong-land-xxxhdpi
-- long-ldpi-finger
-- __~~fr-notlong-port-qwerty-v25~~__
-- long-port
-- round-desk-xxhdpi-v26
-- rFR-notlong-nokeys-v27
-- large-port-vrheadset-12key
-- __~~fr-rUS-watch-finger~~__
+(default)
+long-round-port
+rFR-notlong-round-notnight-nodpi-v25
+notlong-land-xxxhdpi
+long-ldpi-finger
+__~~fr-notlong-port-qwerty-v25~~__
+long-port
+round-desk-xxhdpi-v26
+rFR-notlong-nokeys-v27
+large-port-vrheadset-12key
+__~~fr-rUS-watch-finger~~__
 
-Убираем 2 строки с регионами rFR, так как нельзя писать только регион
+- Убираем 2 строки с регионами rFR, так как нельзя писать только регион
 
-- (default)
-- long-round-port
-- __~~rFR-notlong-round-notnight-nodpi-v25~~__
-- notlong-land-xxxhdpi
-- long-ldpi-finger
-- long-port
-- round-desk-xxhdpi-v26
-- __~~rFR-notlong-nokeys-v27~~__
-- large-port-vrheadset-12key
+(default)
+long-round-port
+__~~rFR-notlong-round-notnight-nodpi-v25~~__
+notlong-land-xxxhdpi
+long-ldpi-finger
+long-port
+round-desk-xxhdpi-v26
+__~~rFR-notlong-nokeys-v27~~__
+large-port-vrheadset-12key
 
-Смотрим на размер экрана и убираем лишнюю строку
+- Смотрим на размер экрана и убираем лишнюю строку
 
-- (default)
-- long-round-port
-- notlong-land-xxxhdpi
-- long-ldpi-finger
-- long-port
-- round-desk-xxhdpi-v26
-- __~~large-port-vrheadset-12key~~__
+(default)
+long-round-port
+notlong-land-xxxhdpi
+long-ldpi-finger
+long-port
+round-desk-xxhdpi-v26
+__~~large-port-vrheadset-12key~~__
 
-Смотрим на формат экрана
+- Смотрим на формат экрана
 
-- (default)
-- __~~long-round-port~~__
-- __~~notlong-land-xxxhdpi~~__
-- __~~long-ldpi-finger~~__
-- __~~long-port~~__
-- round-desk-xxhdpi-v26
+(default)
+__~~long-round-port~~__
+__~~notlong-land-xxxhdpi~~__
+__~~long-ldpi-finger~~__
+__~~long-port~~__
+round-desk-xxhdpi-v26
 
-Мы нашли __notlong__, но плотность пикселей не xxxhdpi, поэтому убрали и его
+- Мы нашли __notlong__, но плотность пикселей не xxxhdpi, поэтому убрали и его
 
-Осталось 2 варианта, и вариант с round тоже не подходит, поэтому оставляем __default__.
+- Осталось 2 варианта, и вариант с round тоже не подходит, поэтому оставляем __default__.
 
 ## Задача 4 - Сохранение состояние Activity
 
 Ошибки, которые исправил:
 
 - Убрал атрибут text у TextView, чтобы не отображалось "Hello World"
-- Добавил глобальную переменную для сохранения секунд при перезапуске
+- Добавил константу для сохранения секунд при перезапуске
 - Добавил остановку и продолжение счета при onPause и onResume
+- Попробовал восстанавливать состояние как в onCreate, так и в onRestoreInstanceState
 
 Как и сказано в самом задании, мы должны были использовать методы onSaveInstanceState и onRestoreInstanceState, которые записывают текущее состояние в глобальную переменную и берут из неё число при возобновлении.
 
@@ -325,6 +335,6 @@ __Конфигурация ресурсов:__
 Так как я совместил выполнение 1 и 4 пунктов, то время немного сэкономилось.
 Первое задание само по себе легкое, но при попытке запуска устройства на телефоне, я не видел сообщений в Logcat, поэтому спустя минут 20 я решил выполнять на эмуляторе (спасибо, у меня вылетел синий экран с надписью "Код ошибки: MEMORY_MANAGEMENT"). Задание наконец закончил спустя полтора часа, при этом добавив все недостающие элементы для Task4.
 
-Сидел и долго думал, как мне вообще что-то написать для touchscreen type атрибута. В итоге просто решил дать действие кнопке, чтобы она отображала и скрывала картинку ;)
+Сидел и долго думал, как мне вообще что-то написать для touchscreen type атрибута. Оказалось всё довольно просто, достаточно было добавить новую папку в res и переписать аттрибут text у какого-нибудь элемента.
 
 На Task3 потратил минут 30, но зато сразу вносил всё в отчет.

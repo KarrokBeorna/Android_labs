@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.continuewatch.*
 
-val SECONDS_EL = "seconds_el"
+const val SECONDS_EL = "seconds_el"
 
 class Continuewatch : AppCompatActivity() {
     var secondsElapsed: Int = 0
@@ -24,8 +24,14 @@ class Continuewatch : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.continuewatch)
-        backgroundThread.start()
+        if (savedInstanceState != null) {
+            secondsElapsed = savedInstanceState.getInt(SECONDS_EL)
+            setContentView(R.layout.continuewatch)
+            backgroundThread.start()
+        } else {
+            setContentView(R.layout.continuewatch)
+            backgroundThread.start()
+        }
         Log.d("MyLifecycle", "onCreate")
     }
 
@@ -66,10 +72,11 @@ class Continuewatch : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         Log.d("MyLifecycle", "onSaveInstanceState")
     }
-
+    /**
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         secondsElapsed = savedInstanceState.getInt(SECONDS_EL)
         super.onRestoreInstanceState(savedInstanceState)
         Log.d("MyLifecycle", "onRestoreInstanceState")
-    }
+    }*/
+
 }
