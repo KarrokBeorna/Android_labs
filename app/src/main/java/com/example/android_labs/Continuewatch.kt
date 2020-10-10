@@ -26,12 +26,9 @@ class Continuewatch : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (savedInstanceState != null) {
             secondsElapsed = savedInstanceState.getInt(SECONDS_EL)
-            setContentView(R.layout.continuewatch)
-            backgroundThread.start()
-        } else {
-            setContentView(R.layout.continuewatch)
-            backgroundThread.start()
         }
+        setContentView(R.layout.continuewatch)
+        backgroundThread.start()
         Log.d("MyLifecycle", "onCreate")
     }
 
