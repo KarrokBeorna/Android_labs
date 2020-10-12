@@ -372,7 +372,7 @@ __Листинг 5.1 - ActivityMain__
         }
     }
 
-__Листинг 5.1 - task5_first__
+__Листинг 5.2 - task5_first__
 
     package com.example.android_labs.labs3_task5
 
@@ -403,7 +403,7 @@ __Листинг 5.1 - task5_first__
 
     }
 
-__Листинг 5.1 - Task5_second__
+__Листинг 5.3 - Task5_second__
 
     package com.example.android_labs.labs3_task5
 
@@ -434,7 +434,7 @@ __Листинг 5.1 - Task5_second__
 
     }
 
-__Листинг 5.1 - Task5_third__
+__Листинг 5.4 - Task5_third__
 
     package com.example.android_labs.labs3_task5
 
@@ -465,7 +465,7 @@ __Листинг 5.1 - Task5_third__
 
     }
 
-__Листинг 5.1 - Task5_fourth__
+__Листинг 5.5 - Task5_fourth__
 
     package com.example.android_labs.labs3_task5
 
@@ -499,7 +499,7 @@ __Листинг 5.1 - Task5_fourth__
 
     }
 
-__Листинг 5.1 - task5_main.xml__
+__Листинг 5.6 - task5_main.xml__
 
     <?xml version="1.0" encoding="utf-8"?>
     <androidx.drawerlayout.widget.DrawerLayout
