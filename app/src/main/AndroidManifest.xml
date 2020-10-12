@@ -9,12 +9,58 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Continuewatch"
-            tools:ignore="WrongManifestParent">
+        <activity android:name=".Activity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity2">
+            <intent-filter>
+                <action android:name="com.example.android_labs.Activity2" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity3">
+            <intent-filter>
+                <action android:name="com.example.android_labs.Activity3" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".labs3_Task4.Activity1_task4">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".labs3_Task4.Activity2_task4">
+            <intent-filter>
+                <action android:name="com.example.android_labs.labs3_Task4.Activity2_task4" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".labs3_Task4.Activity3_task4">
+            <intent-filter>
+                <action android:name="com.example.android_labs.labs3_Task4.Activity3_task4" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".labs3_Task4.Activity4_task4">
+            <intent-filter>
+                <action android:name="com.example.android_labs.labs3_Task4.Activity4_task4" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".labs3_task5.ActivityMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivityAbout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
